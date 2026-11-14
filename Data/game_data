@@ -3,7 +3,7 @@ extends RefCounted
 
 const GAME := {
 	"title": "idfk",
-	"duration_days": 4,
+	"duration_days": 5,
 	"description": "Keep the astronaut and the outpost plant alive by managing water, electrical power, oxygen, and heat.",
 	"units": {
 		"power": "power_units",
@@ -71,6 +71,7 @@ const BALANCE_PARAMETERS := {
 	"plant_failed_health": 40.0,
 }
 const PLANT_DATA := {
+ 	"description": "Arabidopsis Thaliana",
 	"initial_growth_stage": "seed",
 	"daily_water_requirement": 0.5,
 	"nutrient_solution": "Murashige and Skoog (MS)",
@@ -81,7 +82,7 @@ const SOLAR_STORM_EVENTS := [
 {
     "date": "2011-08-04",
 		"peak_flux_pfu": 96.0,
-    "noaa_s_scale": "S1",
+    	"noaa_s_scale": "S1",
 		"noaa_start_utc": "2011-08-04T06:35:00",
 		"noaa_peak_time_utc": "2011-08-05T21:50:00",
 		"donki_event_time_utc": "2011-08-04T05:10:00",
@@ -90,7 +91,7 @@ const SOLAR_STORM_EVENTS := [
 	{
 		"date": "2012-03-07",
 		"peak_flux_pfu": 6530.0,
-    "noaa_s_scale": "S3",
+    	"noaa_s_scale": "S3",
 		"noaa_start_utc": "2012-03-07T05:10:00",
 		"noaa_peak_time_utc": "2012-03-08T11:15:00",
 		"donki_event_time_utc": "2012-03-07T05:00:00",
@@ -99,7 +100,7 @@ const SOLAR_STORM_EVENTS := [
 	{
 		"date": "2012-01-27",
 		"peak_flux_pfu": 796.0,
-    "noaa_s_scale": "S2",
+    	"noaa_s_scale": "S2",
 		"noaa_start_utc": "2012-01-27T19:05:00",
 		"noaa_peak_time_utc": "2012-01-28T02:05:00",
 		"donki_event_time_utc": "2012-01-27T19:00:00",
