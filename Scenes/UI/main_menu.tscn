@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c8sc23fclteq1"]
+
+[node name="Main Menu" type="Control" unique_id=1459016609]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1867708711]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1996943189]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=581381303]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=541219719]
+layout_mode = 2
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=822759961]
+layout_mode = 2
+text = "Settings"
+
+[node name="KnowMoreButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1950989157]
+layout_mode = 2
+text = "Know More!"
+
+[node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1930533478]
+layout_mode = 2
+text = "Credits
+"
