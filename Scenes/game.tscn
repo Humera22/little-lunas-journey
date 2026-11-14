@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://tc88w5dstwec"]
 
+[ext_resource type="Script" uid="uid://fnrigdjnjnwj" path="res://Scripts/game.gd" id="1_i6g32"]
+[ext_resource type="PackedScene" uid="uid://d1q80d6ir5jr3" path="res://Scenes/UI/ui.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://c3uywb7hs5gk6" path="res://Scenes/world.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://dqx6us6mkjwvm" path="res://Scripts/game_data.gd" id="4_i6g32"]
+[ext_resource type="Script" uid="uid://3nayf66dls6e" path="res://Scripts/state_machine.gd" id="5_1l0tm"]
+[ext_resource type="Script" uid="uid://bvcgjsobeoo4s" path="res://Scripts/level_manager.gd" id="5_v158k"]
+
 [node name="Game" type="Node2D" unique_id=1900424955]
+script = ExtResource("1_i6g32")
+
+[node name="GameStateMachine" type="Node" parent="." unique_id=1274881277]
+script = ExtResource("5_1l0tm")
+
+[node name="UI" parent="." unique_id=617180033 instance=ExtResource("1_qxrlw")]
+
+[node name="GameData" type="Node" parent="." unique_id=1122376865]
+script = ExtResource("4_i6g32")
+
+[node name="LevelManager" type="Node" parent="." unique_id=474631249]
+script = ExtResource("5_v158k")
+
+[node name="CurrentLevel" type="Node" parent="LevelManager" unique_id=1334928921]
+
+[node name="World" parent="." unique_id=1469635593 instance=ExtResource("4_3dryh")]

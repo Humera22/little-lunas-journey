@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c8sc23fclteq1"]
 
+[ext_resource type="PackedScene" uid="uid://cicuhoh2h2cuk" path="res://Scenes/UI/button.tscn" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://8c57v0hnqf4j" path="res://Scenes/UI/main_menu.gd" id="1_i2xx2"]
+
 [node name="Main Menu" type="Control" unique_id=1459016609]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i2xx2")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1867708711]
 layout_mode = 1
@@ -28,19 +32,20 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=581381303]
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=541219719]
+[node name="PlayButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312432827 instance=ExtResource("1_5wsvm")]
 layout_mode = 2
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=822759961]
+[node name="SettingsButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1433384432 instance=ExtResource("1_5wsvm")]
 layout_mode = 2
 text = "Settings"
 
-[node name="KnowMoreButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1950989157]
+[node name="KnowMoreButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1512808863 instance=ExtResource("1_5wsvm")]
 layout_mode = 2
 text = "Know More!"
 
-[node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1930533478]
+[node name="CreditsButtonn" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=285239282 instance=ExtResource("1_5wsvm")]
 layout_mode = 2
-text = "Credits
-"
+text = "Credits"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

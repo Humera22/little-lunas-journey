@@ -1,9 +1,71 @@
 [gd_scene format=3 uid="uid://d1q80d6ir5jr3"]
 
-[node name="UI" type="Control" unique_id=617180033]
+[ext_resource type="Script" uid="uid://clw40r1kug2ai" path="res://Scripts/ui.gd" id="1_ahcct"]
+[ext_resource type="PackedScene" uid="uid://f52bugtqlpsx" path="res://Scenes/UI/hud.tscn" id="2_de23q"]
+[ext_resource type="PackedScene" uid="uid://c8sc23fclteq1" path="res://Scenes/UI/main_menu.tscn" id="3_c7mb3"]
+[ext_resource type="Script" uid="uid://buwgn5mnh6i6s" path="res://Scenes/UI/levels_selector.gd" id="4_1c2ca"]
+[ext_resource type="Script" uid="uid://drd1tgx85fc8h" path="res://Scripts/UI/pause_menu.gd" id="4_duuxe"]
+[ext_resource type="Script" uid="uid://lo0la0k0dvsf" path="res://Scripts/UI/confirmation.gd" id="5_duuxe"]
+[ext_resource type="Script" uid="uid://db5m6r6ga87jd" path="res://Scripts/UI/choices_dialog.gd" id="6_jfwrg"]
+
+[node name="UI" type="CanvasLayer" unique_id=1779952027]
+script = ExtResource("1_ahcct")
+
+[node name="MainMenu" parent="." unique_id=1459016609 instance=ExtResource("3_c7mb3")]
+
+[node name="HUD" parent="." unique_id=304500825 instance=ExtResource("2_de23q")]
+
+[node name="PauseMenu" type="Control" parent="." unique_id=546702791]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_duuxe")
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu" unique_id=68481988]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer" unique_id=1512033646]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1062231729]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1713455287]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=24955907]
+layout_mode = 2
+
+[node name="SelectLevelButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1719673881]
+layout_mode = 2
+
+[node name="Menu" type="Control" parent="." unique_id=1319198906]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOver" type="Control" parent="." unique_id=1382348270]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelsSelector" type="ItemList" parent="." unique_id=355701981]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_1c2ca")
+
+[node name="Confirmation" type="AcceptDialog" parent="." unique_id=1269804743]
+script = ExtResource("5_duuxe")
+
+[node name="ChoicesDialog" type="Control" parent="." unique_id=819264861]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_jfwrg")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://564d7rhwb338"]
+
+[ext_resource type="Script" uid="uid://n8e427f3arm6" path="res://Scripts/UI/dialog_box.gd" id="1_e22q5"]
+
+[node name="DialogBox" type="Control" unique_id=1945985039]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e22q5")
+
+[node name="Panel" type="Panel" parent="." unique_id=752764713]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NextButton" type="Button" parent="Panel" unique_id=355121023]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Next"
+
+[node name="Dialog" type="Label" parent="Panel" unique_id=1160591455]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PrevButton" type="Button" parent="Panel" unique_id=2105053492]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Prev"
+
+[node name="SkipButton" type="Button" parent="Panel" unique_id=543894276]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Skip"
+script = ExtResource("1_e22q5")
+
+[connection signal="pressed" from="Panel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Panel/SkipButton" to="." method="_on_skip_button_pressed"]

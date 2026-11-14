@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://f52bugtqlpsx"]
+
+[ext_resource type="PackedScene" uid="uid://cicuhoh2h2cuk" path="res://Scenes/UI/button.tscn" id="1_sprlj"]
+[ext_resource type="PackedScene" uid="uid://564d7rhwb338" path="res://Scenes/UI/dialog_box.tscn" id="2_ny26j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msh5w"]
+bg_color = Color(0.80784315, 0.2509804, 0.54509807, 1)
+
+[node name="HUD" type="Control" unique_id=304500825]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=632542259]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 53.0
+grow_vertical = 0
+
+[node name="Menu" parent="VBoxContainer" unique_id=312432827 instance=ExtResource("1_sprlj")]
+layout_mode = 2
+
+[node name="Button" parent="VBoxContainer" unique_id=1159837947 instance=ExtResource("1_sprlj")]
+layout_mode = 2
+
+[node name="Button4" parent="VBoxContainer" unique_id=1138514947 instance=ExtResource("1_sprlj")]
+layout_mode = 2
+
+[node name="ProgressBars" type="Panel" parent="." unique_id=135514659]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgressBars" unique_id=1421800129]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressBars/MarginContainer" unique_id=1242721203]
+layout_mode = 2
+
+[node name="HBoxHealth" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=557670856]
+layout_mode = 2
+
+[node name="Health" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxHealth" unique_id=1896731630]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_msh5w")
+
+[node name="HBoxPlant" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=1431617624]
+layout_mode = 2
+
+[node name="PlantHealth" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxPlant" unique_id=1999464109]
+layout_mode = 2
+
+[node name="HBoxWater" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=1278086279]
+layout_mode = 2
+
+[node name="Water" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxWater" unique_id=1937648265]
+layout_mode = 2
+
+[node name="HBoxOxygen" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=856671862]
+layout_mode = 2
+
+[node name="Oxygen" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxOxygen" unique_id=270353024]
+layout_mode = 2
+
+[node name="PauseButton" parent="." unique_id=380300329 instance=ExtResource("1_sprlj")]
+layout_mode = 0
+text = "Pause"
+
+[node name="DialogBox" parent="." unique_id=1945985039 instance=ExtResource("2_ny26j")]
+layout_mode = 1
