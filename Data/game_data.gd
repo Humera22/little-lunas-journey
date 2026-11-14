@@ -91,7 +91,7 @@ const SOLAR_STORM_EVENTS := [
 	{
 		"date": "2012-03-07",
 		"peak_flux_pfu": 6530.0,
-   		"noaa_s_scale": "S3",
+   		 "noaa_s_scale": "S3",
 		"noaa_start_utc": "2012-03-07T05:10:00",
 		"noaa_peak_time_utc": "2012-03-08T11:15:00",
 		"donki_event_time_utc": "2012-03-07T05:00:00",
