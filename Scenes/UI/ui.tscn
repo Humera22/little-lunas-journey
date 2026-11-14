@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://drd1tgx85fc8h" path="res://Scripts/UI/pause_menu.gd" id="4_duuxe"]
 [ext_resource type="Script" uid="uid://lo0la0k0dvsf" path="res://Scripts/UI/confirmation.gd" id="5_duuxe"]
 [ext_resource type="Script" uid="uid://db5m6r6ga87jd" path="res://Scripts/UI/choices_dialog.gd" id="6_jfwrg"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/food_menu.tscn" id="7_foodmenu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 24.0
@@ -100,7 +101,7 @@ offset_right = 200.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-item_count = 7
+item_count = 6
 item_0/text = "Day 1"
 item_1/text = "Day 2"
 item_1/disabled = true
@@ -114,10 +115,7 @@ item_3/selectable = false
 item_4/text = "Day 5"
 item_4/disabled = true
 item_4/selectable = false
-item_5/text = "Day 6"
-item_5/disabled = true
-item_5/selectable = false
-item_6/text = "< Back"
+item_5/text = "< Back"
 script = ExtResource("4_1c2ca")
 
 [node name="Confirmation" type="ConfirmationDialog" parent="." unique_id=1269804743]
@@ -180,6 +178,9 @@ visible = false
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 text = "Continue"
+
+[node name="FoodMenu" parent="." instance=ExtResource("7_foodmenu")]
+layout_mode = 3
 
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/SelectLevelButton" to="PauseMenu" method="_on_select_level_button_pressed"]

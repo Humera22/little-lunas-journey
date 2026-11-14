@@ -18,6 +18,17 @@ content_margin_bottom = 8.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health"]
 bg_color = Color(0.80784315, 0.2509804, 0.54509807, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_checklist"]
+bg_color = Color(0.0, 0.0, 0.0, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
 [node name="HUD" type="Control" unique_id=304500825]
 layout_mode = 3
 anchors_preset = 15
@@ -26,6 +37,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_hud")
+
+[node name="DayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "Day 1"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
 
 [node name="CenterContainer" type="PanelContainer" parent="." unique_id=921038812]
 layout_mode = 1
@@ -150,17 +175,71 @@ custom_minimum_size = Vector2(80, 0)
 
 [node name="PauseButton" parent="." unique_id=380300329 instance=ExtResource("1_sprlj")]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 0
+anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
+anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -100.0
-offset_right = -4.0
+offset_left = 4.0
+offset_right = 100.0
 offset_top = 4.0
 offset_bottom = 36.0
-grow_horizontal = 0
-text = "Pause"
+text = "☰ Menu"
+
+[node name="EatButton" parent="." unique_id=490123457 instance=ExtResource("1_sprlj")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 108.0
+offset_right = 204.0
+offset_top = 4.0
+offset_bottom = 36.0
+text = "🍽 Eat"
+
+[node name="Checklist" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -80.0
+offset_right = 180.0
+offset_bottom = 80.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_checklist")
+
+[node name="ChecklistVBox" type="VBoxContainer" parent="Checklist"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ChecklistTitle" type="Label" parent="Checklist/ChecklistVBox"]
+layout_mode = 2
+text = "Daily Tasks"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="TaskDrink" type="Label" parent="Checklist/ChecklistVBox"]
+layout_mode = 2
+text = "○ Drink Water"
+theme_override_font_sizes/font_size = 15
+
+[node name="TaskEat" type="Label" parent="Checklist/ChecklistVBox"]
+layout_mode = 2
+text = "○ Eat Food"
+theme_override_font_sizes/font_size = 15
+
+[node name="TaskPlant" type="Label" parent="Checklist/ChecklistVBox"]
+layout_mode = 2
+text = "○ Feed Plant"
+theme_override_font_sizes/font_size = 15
+
+[node name="TaskComms" type="Label" parent="Checklist/ChecklistVBox"]
+layout_mode = 2
+text = "○ Check Comms"
+theme_override_font_sizes/font_size = 15
 
 [node name="DialogBox" parent="." unique_id=1945985039 instance=ExtResource("2_ny26j")]
 layout_mode = 1
@@ -189,3 +268,4 @@ grow_vertical = 2
 text = "Next Day"
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]

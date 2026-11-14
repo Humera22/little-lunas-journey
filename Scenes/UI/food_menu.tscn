@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://food_menu_scn"]
+
+[ext_resource type="Script" path="res://Scripts/UI/food_menu.gd" id="1_foodmenu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.07, 0.07, 0.12, 0.97)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.1, 0.18, 1.0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 24.0
+content_margin_right = 24.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.2, 0.2, 0.3, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_fill"]
+bg_color = Color(0.2, 0.8, 0.4, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[node name="FoodMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_foodmenu")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -300.0
+offset_right = 340.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="Background/VBox"]
+layout_mode = 2
+text = "🍽 Meal Station"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="SubtitleLabel" type="Label" parent="Background/VBox"]
+layout_mode = 2
+text = "Select items to eat. Reach the minimum daily calories to stay healthy."
+horizontal_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+modulate = Color(0.8, 0.8, 0.8, 1.0)
+
+[node name="CalorieBarRow" type="HBoxContainer" parent="Background/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BarLabel" type="Label" parent="Background/VBox/CalorieBarRow"]
+layout_mode = 2
+text = "Calories:"
+custom_minimum_size = Vector2(72, 0)
+vertical_alignment = 1
+
+[node name="CalorieBar" type="ProgressBar" parent="Background/VBox/CalorieBarRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+max_value = 3200.0
+show_percentage = false
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_fill")
+
+[node name="CalorieLabel" type="Label" parent="Background/VBox/CalorieBarRow"]
+layout_mode = 2
+text = "0 / 3200 cal"
+custom_minimum_size = Vector2(110, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Background/VBox"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 320)
+
+[node name="ItemsContainer" type="VBoxContainer" parent="Background/VBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="Background/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "← Back"
+theme_override_font_sizes/font_size = 16

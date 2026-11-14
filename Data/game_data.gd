@@ -21,6 +21,8 @@ const INITIAL_STATE := {
 	"astronaut_hydration": 100.0,
 	"plant_health": 100.0,
 	"astronaut_drank_today": false,
+	"exercise_done": false,
+	"calories_eaten_today": 0.0,
 	"solar_panels_clean": true,
 	"astronaut_health": 100.0,
 	"nutrient_ph": null,
@@ -54,7 +56,7 @@ const BALANCE_PARAMETERS := {
 	"oxy_day": 820,
 	# oxygen per day no exercise
 	"noex_oxy_day": 720,
-    #power deducted when panels are dusty on day 3 continuously til cleaned
+	#power deducted when panels are dusty on day 3 continuously til cleaned
 	"daily_solar_dusty": 10.0,
 	"power_comp_threshold": 50, #if power reaches 50 issue a warning 
   #power deducted when solar panels are effected by radiation storm
@@ -80,9 +82,9 @@ const PLANT_DATA := {
 }
 const SOLAR_STORM_EVENTS := [
 {
-    "date": "2011-08-04",
+	"date": "2011-08-04",
 		"peak_flux_pfu": 96.0,
-    	"noaa_s_scale": "S1",
+		"noaa_s_scale": "S1",
 		"noaa_start_utc": "2011-08-04T06:35:00",
 		"noaa_peak_time_utc": "2011-08-05T21:50:00",
 		"donki_event_time_utc": "2011-08-04T05:10:00",
@@ -100,12 +102,12 @@ const SOLAR_STORM_EVENTS := [
 	{
 		"date": "2012-01-27",
 		"peak_flux_pfu": 796.0,
-    	"noaa_s_scale": "S2",
+		"noaa_s_scale": "S2",
 		"noaa_start_utc": "2012-01-27T19:05:00",
 		"noaa_peak_time_utc": "2012-01-28T02:05:00",
 		"donki_event_time_utc": "2012-01-27T19:00:00",
 		"donki_sep_id": "2012-01-27T19:00:00-SEP-001"
-    }]
+	}]
 
 const DATA := {
 	"game": GAME,
@@ -129,5 +131,3 @@ static func get_random_solar_storm() -> Dictionary:
 	var events: Array = DATA["solar_storm_events"]
 	return events.pick_random().duplicate(true)
  
-
-

@@ -8,10 +8,13 @@
 [ext_resource type="Script" uid="uid://grijgqnfuqw" path="res://Scripts/bed.gd" id="4_k7acu"]
 [ext_resource type="Script" uid="uid://btr76wqknd0tr" path="res://Scripts/communicator.gd" id="6_5v1tr"]
 [ext_resource type="Script" uid="uid://c8p27rfy5niis" path="res://Scripts/day_content.gd" id="7_dayct"]
+[ext_resource type="Script" uid="uid://d4ntsrci4hnly" path="res://Scripts/water_station.gd" id="8_water"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msh5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qspnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01shd"]
 
@@ -80,6 +83,27 @@ offset_bottom = -50.0
 text = "[E] Open"
 horizontal_alignment = 1
 
+[node name="WaterStation" type="Area2D" parent="InsideNode/DayContent" unique_id=1484771129]
+position = Vector2(950, 852)
+script = ExtResource("8_water")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/WaterStation" unique_id=1697929188]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_water")
+
+[node name="Sprite2D" type="Sprite2D" parent="InsideNode/DayContent/WaterStation" unique_id=926491072]
+texture = ExtResource("4_5v1tr")
+
+[node name="InteractHint" type="Label" parent="InsideNode/DayContent/WaterStation" unique_id=2061132500]
+visible = false
+z_index = 10
+offset_left = -60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = -70.0
+text = "[E] Drink"
+horizontal_alignment = 1
+
 [node name="OutsideNode" type="Node2D" parent="." unique_id=1490516005]
 visible = false
 
@@ -107,3 +131,5 @@ shape = SubResource("WorldBoundaryShape2D_qspnv")
 [connection signal="body_exited" from="InsideNode/DayContent/Bed" to="InsideNode/DayContent/Bed" method="_on_body_exited"]
 [connection signal="body_entered" from="InsideNode/DayContent/Communicator" to="InsideNode/DayContent/Communicator" method="_on_body_entered"]
 [connection signal="body_exited" from="InsideNode/DayContent/Communicator" to="InsideNode/DayContent/Communicator" method="_on_body_exited"]
+[connection signal="body_entered" from="InsideNode/DayContent/WaterStation" to="InsideNode/DayContent/WaterStation" method="_on_body_entered"]
+[connection signal="body_exited" from="InsideNode/DayContent/WaterStation" to="InsideNode/DayContent/WaterStation" method="_on_body_exited"]
