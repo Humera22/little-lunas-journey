@@ -2,10 +2,15 @@ extends Area2D
 
 var player_nearby = false
 
+@onready var interact_hint: Label = $InteractHint
+
 func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
+	if interact_hint:
+		interact_hint.visible = player_nearby
+
 	if Input.is_action_just_pressed("interact") and player_nearby:
 		# Get LevelManager from the scene tree root
 		var game = get_tree().get_first_node_in_group("game")

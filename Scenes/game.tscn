@@ -10,10 +10,11 @@
 [node name="Game" type="Node2D" unique_id=1900424955]
 script = ExtResource("1_i6g32")
 
-[node name="GameStateMachine" type="Node" parent="." unique_id=1274881277]
-script = ExtResource("5_1l0tm")
-
 [node name="World" parent="." unique_id=1469635593 instance=ExtResource("4_3dryh")]
+
+[node name="GameStateMachine" type="Node" parent="." unique_id=1274881277]
+process_mode = 3
+script = ExtResource("5_1l0tm")
 
 [node name="UI" parent="." unique_id=617180033 instance=ExtResource("1_qxrlw")]
 

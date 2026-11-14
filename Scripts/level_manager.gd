@@ -2,7 +2,7 @@
 extends Node
 
 @onready var game_data = get_parent().get_node("GameData")
-@onready var day_content: Node = get_node("../World/Inside/DayContent")
+@onready var day_content: Node = get_node("../World/InsideNode/DayContent")
 
 
 func start_first_day(starting_resources: Dictionary):

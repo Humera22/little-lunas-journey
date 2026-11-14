@@ -14,6 +14,8 @@ func show_screen(screen_name: String) -> void:
 	hud.hide()
 	pause_menu.hide()
 	game_over.hide()
+	level_selector.hide()
+	choices_dialog.hide()
 	
 	match screen_name:
 		'main_menu':

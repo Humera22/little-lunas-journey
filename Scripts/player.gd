@@ -48,8 +48,8 @@ func _check_edge_switch() -> void:
 	if not world:
 		return
 
-	var inside = world.get_node_or_null("Inside")
-	var outside = world.get_node_or_null("Outside")
+	var inside = world.get_node_or_null("InsideNode")
+	var outside = world.get_node_or_null("OutsideNode")
 	if not inside or not outside:
 		return
 

@@ -4,6 +4,7 @@ extends BaseState
 func enter(params = null) -> void:
 	context.get_tree().paused = false
 	context.ui.show_screen('hud')
+	context.world.show()
 	connect_gameplay_signals()
 	
 func exit() -> void:
@@ -18,8 +19,8 @@ func pause() -> void:
 	
 
 func connect_gameplay_signals():
-	# Communicator is at World > Inside > DayContent > Communicator
-	var communicator = context.world.get_node("Inside/DayContent/Communicator")
+	# Communicator is at World > InsideNode > DayContent > Communicator
+	var communicator = context.world.get_node("InsideNode/DayContent/Communicator")
 	# ChoicesDialog is in the UI CanvasLayer
 	var choice_dialog = context.ui.get_node("ChoicesDialog")
 
@@ -34,8 +35,13 @@ func connect_gameplay_signals():
 
 
 func _on_communicator_interacted():
-	var day_content = context.world.get_node("Inside/DayContent")
+	var day_content = context.world.get_node("InsideNode/DayContent")
+	if day_content.event_handled:
+		return  # Already handled this day's event
+
 	var event_data = day_content.get_current_event()
+	if event_data.is_empty():
+		return
 
 	var choice_dialog = context.ui.get_node("ChoicesDialog")
 	if choice_dialog:
@@ -44,6 +50,9 @@ func _on_communicator_interacted():
 
 func _on_choice_selected(choice_id: String):
 	print("Player selected: ", choice_id)
+
+	var day_content = context.world.get_node("InsideNode/DayContent")
+	day_content.mark_event_handled()
 
 	var game_data = context.level_manager.game_data
 
@@ -67,3 +76,5 @@ func _on_choice_selected(choice_id: String):
 
 func _on_news_closed():
 	print("Player finished reading the news.")
+	var day_content = context.world.get_node("InsideNode/DayContent")
+	day_content.mark_event_handled()

@@ -49,7 +49,7 @@ func show_event(event_data: Dictionary):
 	# Hide the DayIndicator on the communicator when the dialog opens
 	var game = get_tree().get_first_node_in_group("game")
 	if game:
-		var indicator = game.get_node_or_null("World/Inside/DayContent/Communicator/DayIndicator")
+		var indicator = game.get_node_or_null("World/InsideNode/DayContent/Communicator/DayIndicator")
 		if indicator:
 			indicator.hide()
 

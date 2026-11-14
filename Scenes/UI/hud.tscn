@@ -55,6 +55,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 20)
 max_value = 3500.0
+show_percentage = false
 theme_override_styles/background = SubResource("StyleBoxFlat_health")
 
 [node name="OxygenLabel" type="Label" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353026]
@@ -76,6 +77,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 20)
 max_value = 15.0
+show_percentage = false
 
 [node name="WaterLabel" type="Label" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648267]
 layout_mode = 2
@@ -96,6 +98,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 20)
 max_value = 100.0
+show_percentage = false
 
 [node name="PowerLabel" type="Label" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514663]
 layout_mode = 2
@@ -116,6 +119,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 20)
 max_value = 100.0
+show_percentage = false
 
 [node name="PHealthLabel" type="Label" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464111]
 layout_mode = 2
@@ -136,6 +140,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 20)
 max_value = 100.0
+show_percentage = false
 theme_override_styles/background = SubResource("StyleBoxFlat_health")
 
 [node name="AHealthLabel" type="Label" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731632]
