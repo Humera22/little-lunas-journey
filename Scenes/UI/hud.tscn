@@ -2,8 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://cicuhoh2h2cuk" path="res://Scenes/UI/button.tscn" id="1_sprlj"]
 [ext_resource type="PackedScene" uid="uid://564d7rhwb338" path="res://Scenes/UI/dialog_box.tscn" id="2_ny26j"]
+[ext_resource type="Script" uid="uid://b41lshw4rbt2j" path="res://Scripts/UI/hud.gd" id="3_hud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msh5w"]
+bg_color = Color(0.0, 0.0, 0.0, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health"]
 bg_color = Color(0.80784315, 0.2509804, 0.54509807, 1)
 
 [node name="HUD" type="Control" unique_id=304500825]
@@ -13,70 +25,162 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_hud")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=632542259]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -101.0
-offset_right = 53.0
-grow_vertical = 0
-
-[node name="Menu" parent="VBoxContainer" unique_id=312432827 instance=ExtResource("1_sprlj")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer" unique_id=1159837947 instance=ExtResource("1_sprlj")]
-layout_mode = 2
-
-[node name="Button4" parent="VBoxContainer" unique_id=1138514947 instance=ExtResource("1_sprlj")]
-layout_mode = 2
-
-[node name="ProgressBars" type="Panel" parent="." unique_id=135514659]
+[node name="CenterContainer" type="PanelContainer" parent="." unique_id=921038812]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -280.0
+offset_bottom = 300.0
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_msh5w")
 
-[node name="MarginContainer" type="MarginContainer" parent="ProgressBars" unique_id=1421800129]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ProgressBars/MarginContainer" unique_id=1242721203]
+[node name="ResourceBars" type="VBoxContainer" parent="CenterContainer" unique_id=1242721203]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="HBoxHealth" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=557670856]
+[node name="OxygenRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=856671862]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="Health" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxHealth" unique_id=1896731630]
+[node name="OxygenIcon" type="Label" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353025]
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_msh5w")
+text = "O₂"
+custom_minimum_size = Vector2(28, 0)
 
-[node name="HBoxPlant" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=1431617624]
+[node name="Oxygen" type="ProgressBar" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353024]
 layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 20)
+max_value = 3500.0
+theme_override_styles/background = SubResource("StyleBoxFlat_health")
 
-[node name="PlantHealth" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxPlant" unique_id=1999464109]
+[node name="OxygenLabel" type="Label" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353026]
 layout_mode = 2
+text = "-- g"
+custom_minimum_size = Vector2(80, 0)
 
-[node name="HBoxWater" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=1278086279]
+[node name="WaterRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=1278086279]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="Water" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxWater" unique_id=1937648265]
+[node name="WaterIcon" type="Label" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648266]
 layout_mode = 2
+text = "💧"
+custom_minimum_size = Vector2(28, 0)
 
-[node name="HBoxOxygen" type="HBoxContainer" parent="ProgressBars/MarginContainer/VBoxContainer" unique_id=856671862]
+[node name="Water" type="ProgressBar" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648265]
 layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 20)
+max_value = 15.0
 
-[node name="Oxygen" type="ProgressBar" parent="ProgressBars/MarginContainer/VBoxContainer/HBoxOxygen" unique_id=270353024]
+[node name="WaterLabel" type="Label" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648267]
 layout_mode = 2
+text = "-- L"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="PowerRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=135514660]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PowerIcon" type="Label" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514661]
+layout_mode = 2
+text = "⚡"
+custom_minimum_size = Vector2(28, 0)
+
+[node name="Power" type="ProgressBar" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514662]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 20)
+max_value = 100.0
+
+[node name="PowerLabel" type="Label" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514663]
+layout_mode = 2
+text = "-- pu"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="PHealthRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=1431617624]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PHealthIcon" type="Label" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464110]
+layout_mode = 2
+text = "🌱"
+custom_minimum_size = Vector2(28, 0)
+
+[node name="PHealth" type="ProgressBar" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464109]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 20)
+max_value = 100.0
+
+[node name="PHealthLabel" type="Label" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464111]
+layout_mode = 2
+text = "--"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="AHealthRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=557670856]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AHealthIcon" type="Label" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731631]
+layout_mode = 2
+text = "👩‍🚀"
+custom_minimum_size = Vector2(28, 0)
+
+[node name="AHealth" type="ProgressBar" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731630]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 20)
+max_value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_health")
+
+[node name="AHealthLabel" type="Label" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731632]
+layout_mode = 2
+text = "--"
+custom_minimum_size = Vector2(80, 0)
 
 [node name="PauseButton" parent="." unique_id=380300329 instance=ExtResource("1_sprlj")]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -100.0
+offset_right = -4.0
+offset_top = 4.0
+offset_bottom = 36.0
+grow_horizontal = 0
 text = "Pause"
 
 [node name="DialogBox" parent="." unique_id=1945985039 instance=ExtResource("2_ny26j")]
 layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_vertical = 0
+
+[node name="NextLevelButton" parent="." unique_id=490123456 instance=ExtResource("1_sprlj")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Day"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

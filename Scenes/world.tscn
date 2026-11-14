@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b6df73fhag2ko" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://dl0hg5qwoct7v" path="res://Assets/bg1.png" id="2_8j60k"]
 [ext_resource type="Script" uid="uid://u2jv24ercohg" path="res://Scripts/player.gd" id="2_o06y3"]
-[ext_resource type="Texture2D" uid="uid://cqi0whdro4fvk" path="res://icon.svg" id="3_fo5ed"]
 [ext_resource type="Texture2D" uid="uid://dfpms3py8usm6" path="res://Assets/bg2.png" id="4_5ukr8"]
 [ext_resource type="Script" uid="uid://grijgqnfuqw" path="res://Scripts/bed.gd" id="4_k7acu"]
 [ext_resource type="Script" uid="uid://btr76wqknd0tr" path="res://Scripts/communicator.gd" id="6_5v1tr"]
+[ext_resource type="Script" uid="uid://c8p27rfy5niis" path="res://Scripts/day_content.gd" id="7_dayct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msh5w"]
 
@@ -14,43 +14,75 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01shd"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qspnv"]
+
 [node name="World" type="Node2D" unique_id=1469635593]
 
-[node name="Player" parent="." unique_id=1329304662 instance=ExtResource("1_a02cp")]
-script = ExtResource("2_o06y3")
+[node name="InsideNode" type="Node2D" parent="." unique_id=201261775]
 
-[node name="Inside" type="Node2D" parent="." unique_id=171606801]
-
-[node name="Sprite2D" type="Sprite2D" parent="Inside" unique_id=1731052516]
+[node name="Sprite2D" type="Sprite2D" parent="InsideNode" unique_id=1344749850]
+position = Vector2(960, 540)
 texture = ExtResource("2_8j60k")
 
-[node name="Bed" type="Area2D" parent="Inside" unique_id=526388559]
+[node name="DayContent" type="Node2D" parent="InsideNode" unique_id=991020011]
+script = ExtResource("7_dayct")
+
+[node name="Bed" type="Area2D" parent="InsideNode/DayContent" unique_id=526388559]
+position = Vector2(300, 500)
 script = ExtResource("4_k7acu")
 
-[node name="Sprite2D" type="Sprite2D" parent="Inside/Bed" unique_id=1061300504]
-texture = ExtResource("3_fo5ed")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Bed" unique_id=1014628109]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/Bed" unique_id=1014628109]
 shape = SubResource("RectangleShape2D_msh5w")
 
-[node name="Communicator" type="Area2D" parent="Inside" unique_id=1659355]
+[node name="Communicator" type="Area2D" parent="InsideNode/DayContent" unique_id=1659355]
+position = Vector2(600, 400)
 script = ExtResource("6_5v1tr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Inside/Communicator" unique_id=1847191829]
-texture = ExtResource("3_fo5ed")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Communicator" unique_id=339414681]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/Communicator" unique_id=339414681]
 shape = SubResource("RectangleShape2D_qspnv")
 
-[node name="Outside" type="Node2D" parent="." unique_id=1011213918]
+[node name="DayIndicator" type="Label" parent="InsideNode/DayContent/Communicator" unique_id=889012345]
+visible = false
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -30.0
+text = "▲ New Day"
+horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Outside" unique_id=1787417225]
+[node name="InteractHint" type="Label" parent="InsideNode/DayContent/Communicator" unique_id=889012346]
+visible = false
+offset_left = -60.0
+offset_top = -30.0
+offset_right = 60.0
+offset_bottom = -10.0
+text = "[E] Open"
+horizontal_alignment = 1
+
+[node name="OutsideNode" type="Node2D" parent="." unique_id=1490516005]
+visible = false
+
+[node name="Plant" type="Area2D" parent="OutsideNode" unique_id=517175709]
+position = Vector2(960, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideNode/Plant" unique_id=106962374]
+shape = SubResource("RectangleShape2D_01shd")
+
+[node name="Sprite2D" type="Sprite2D" parent="OutsideNode" unique_id=2056254640]
+position = Vector2(960, 540)
 texture = ExtResource("4_5ukr8")
 
-[node name="Plant" type="Area2D" parent="Outside" unique_id=517175709]
+[node name="Player" parent="." unique_id=1329304662 instance=ExtResource("1_a02cp")]
+position = Vector2(200, 500)
+script = ExtResource("2_o06y3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Outside/Plant" unique_id=42806404]
-texture = ExtResource("3_fo5ed")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1171793474]
+position = Vector2(852, 1005)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Plant" unique_id=106962374]
-shape = SubResource("RectangleShape2D_01shd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=526055985]
+shape = SubResource("WorldBoundaryShape2D_qspnv")
+
+[connection signal="body_entered" from="InsideNode/DayContent/Bed" to="InsideNode/DayContent/Bed" method="_on_body_entered"]
+[connection signal="body_exited" from="InsideNode/DayContent/Bed" to="InsideNode/DayContent/Bed" method="_on_body_exited"]
+[connection signal="body_entered" from="InsideNode/DayContent/Communicator" to="InsideNode/DayContent/Communicator" method="_on_body_entered"]
+[connection signal="body_exited" from="InsideNode/DayContent/Communicator" to="InsideNode/DayContent/Communicator" method="_on_body_exited"]

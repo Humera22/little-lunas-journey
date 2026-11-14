@@ -4,7 +4,8 @@ extends CanvasLayer
 @onready var hud = $HUD
 @onready var pause_menu = $PauseMenu
 @onready var game_over = $GameOver
-@onready var level_selector = $LevelSelector
+@onready var level_selector = $LevelsSelector
+@onready var choices_dialog = $ChoicesDialog
 
 
 

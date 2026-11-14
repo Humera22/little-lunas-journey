@@ -13,6 +13,8 @@ script = ExtResource("1_i6g32")
 [node name="GameStateMachine" type="Node" parent="." unique_id=1274881277]
 script = ExtResource("5_1l0tm")
 
+[node name="World" parent="." unique_id=1469635593 instance=ExtResource("4_3dryh")]
+
 [node name="UI" parent="." unique_id=617180033 instance=ExtResource("1_qxrlw")]
 
 [node name="GameData" type="Node" parent="." unique_id=1122376865]
@@ -20,7 +22,3 @@ script = ExtResource("4_i6g32")
 
 [node name="LevelManager" type="Node" parent="." unique_id=474631249]
 script = ExtResource("5_v158k")
-
-[node name="CurrentLevel" type="Node" parent="LevelManager" unique_id=1334928921]
-
-[node name="World" parent="." unique_id=1469635593 instance=ExtResource("4_3dryh")]

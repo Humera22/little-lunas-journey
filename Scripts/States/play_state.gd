@@ -18,24 +18,28 @@ func pause() -> void:
 	
 
 func connect_gameplay_signals():
-	var communicator = context.world.get_node("DayContent/Communicator")
-	var choice_dialog = context.ui.get_node("ChoiceDialog")
+	# Communicator is at World > Inside > DayContent > Communicator
+	var communicator = context.world.get_node("Inside/DayContent/Communicator")
+	# ChoicesDialog is in the UI CanvasLayer
+	var choice_dialog = context.ui.get_node("ChoicesDialog")
 
-	if not communicator.interacted.is_connected(_on_communicator_interacted):
+	if communicator and not communicator.interacted.is_connected(_on_communicator_interacted):
 		communicator.interacted.connect(_on_communicator_interacted)
 
-	if not choice_dialog.choice_selected.is_connected(_on_choice_selected):
+	if choice_dialog and not choice_dialog.choice_selected.is_connected(_on_choice_selected):
 		choice_dialog.choice_selected.connect(_on_choice_selected)
 
-	if not choice_dialog.news_closed.is_connected(_on_news_closed):
+	if choice_dialog and not choice_dialog.news_closed.is_connected(_on_news_closed):
 		choice_dialog.news_closed.connect(_on_news_closed)
 
 
 func _on_communicator_interacted():
-	var event_data = context.level_manager.day_content.get_current_event()
+	var day_content = context.world.get_node("Inside/DayContent")
+	var event_data = day_content.get_current_event()
 
-	var choice_dialog = context.ui.get_node("ChoiceDialog")
-	choice_dialog.show_event(event_data)
+	var choice_dialog = context.ui.get_node("ChoicesDialog")
+	if choice_dialog:
+		choice_dialog.show_event(event_data)
 
 
 func _on_choice_selected(choice_id: String):
@@ -48,6 +52,17 @@ func _on_choice_selected(choice_id: String):
 			"day": game_data.current_day + 1,
 			"choice_id": choice_id
 		})
+
+	# --- HOW TO ADD CHOICE EFFECTS ---
+	# Add a match block here to apply resource changes based on choice_id.
+	# Example:
+	#   match choice_id:
+	#       "choice_a":
+	#           game_data.resources["water"] -= 2.0
+	#       "choice_b":
+	#           game_data.resources["power"] += 10.0
+	# Each day's choices are defined in Scripts/day_events.gd > DAYS array.
+	# Give each choice a unique "id" string, then match it here.
 
 
 func _on_news_closed():

@@ -8,6 +8,17 @@
 [ext_resource type="Script" uid="uid://lo0la0k0dvsf" path="res://Scripts/UI/confirmation.gd" id="5_duuxe"]
 [ext_resource type="Script" uid="uid://db5m6r6ga87jd" path="res://Scripts/UI/choices_dialog.gd" id="6_jfwrg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.1, 0.15, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 24.0
+content_margin_right = 24.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+
 [node name="UI" type="CanvasLayer" unique_id=1779952027]
 script = ExtResource("1_ahcct")
 
@@ -17,55 +28,137 @@ script = ExtResource("1_ahcct")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=546702791]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4_duuxe")
 
 [node name="CenterContainer" type="CenterContainer" parent="PauseMenu" unique_id=68481988]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer" unique_id=1512033646]
 layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="ResumeButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1062231729]
 layout_mode = 2
+custom_minimum_size = Vector2(200, 40)
+text = "Resume"
 
 [node name="MainMenuButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1713455287]
 layout_mode = 2
+custom_minimum_size = Vector2(200, 40)
+text = "Main Menu"
 
 [node name="SettingsButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=24955907]
 layout_mode = 2
+custom_minimum_size = Vector2(200, 40)
+text = "Settings"
 
 [node name="SelectLevelButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1719673881]
 layout_mode = 2
+custom_minimum_size = Vector2(200, 40)
+text = "Select Level"
 
 [node name="Menu" type="Control" parent="." unique_id=1319198906]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameOver" type="Control" parent="." unique_id=1382348270]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LevelsSelector" type="ItemList" parent="." unique_id=355701981]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4_1c2ca")
 
-[node name="Confirmation" type="AcceptDialog" parent="." unique_id=1269804743]
+[node name="Confirmation" type="ConfirmationDialog" parent="." unique_id=1269804743]
 script = ExtResource("5_duuxe")
 
 [node name="ChoicesDialog" type="Control" parent="." unique_id=819264861]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_jfwrg")
+
+[node name="Overlay" type="ColorRect" parent="ChoicesDialog" unique_id=819264862]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="ChoicesDialog" unique_id=819264863]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="ChoicesDialog/CenterContainer" unique_id=819264864]
+layout_mode = 2
+custom_minimum_size = Vector2(500, 300)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxLayout" type="VBoxContainer" parent="ChoicesDialog/CenterContainer/Panel" unique_id=819264865]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="ChoicesDialog/CenterContainer/Panel/VBoxLayout" unique_id=819264866]
+layout_mode = 2
+text = "Day Event"
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="Dialogue" type="Label" parent="ChoicesDialog/CenterContainer/Panel/VBoxLayout" unique_id=819264867]
+layout_mode = 2
+text = ""
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 60)
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="ChoicesDialog/CenterContainer/Panel/VBoxLayout" unique_id=819264868]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ContinueButton" type="Button" parent="ChoicesDialog/CenterContainer/Panel/VBoxLayout" unique_id=819264869]
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "Continue"
+
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/SelectLevelButton" to="PauseMenu" method="_on_select_level_button_pressed"]

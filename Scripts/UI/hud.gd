@@ -11,7 +11,7 @@ extends Control
 @onready var p_health_label: Label = $CenterContainer/ResourceBars/PHealthRow/PHealthLabel
 @onready var a_health: ProgressBar = $CenterContainer/ResourceBars/AHealthRow/AHealth
 @onready var a_health_label: Label = $CenterContainer/ResourceBars/AHealthRow/AHealthLabel
-@onready var units = NewClean.get_game_info().units
+@onready var units = NewClean.get_data()["game"]["units"]
 @onready var level_manager = $"../../LevelManager"
 @onready var next_level_button = $NextLevelButton
 
@@ -46,13 +46,12 @@ func update_resource_bars():
 	p_health.value = resources["plant_health"]
 	a_health.value = resources["astronaut_health"]
 	
-	oxygen_label.text = str(resources["oxygen"])+ " " +  str(units['oxygen'])
-	water_label.text = str(resources["water"])+ " " +  str(units['water'])
-	power_label.text = str(resources["power"])+ " " +  str(units['power'])
-	p_health_label.text = str(resources["plant_health"])+ " " +  str(units['plant_health'])
-	a_health_label.text = str(resources["astronaut_health"])+ " " +  str(units['astronaut_health'])
-	
-	
+	oxygen_label.text = str(resources["oxygen"]) + " " + str(units['oxygen'])
+	water_label.text = str(resources["water"]) + " " + str(units['water'])
+	power_label.text = str(resources["power"]) + " " + str(units['power'])
+	p_health_label.text = str(resources["plant_health"]) + " " + str(units['plant_health'])
+	a_health_label.text = str(resources["astronaut_health"]) + " " + str(units['astronaut_health'])
+
 
 func _on_pause_button_pressed() -> void:
 	game.state_machine.change('pause')

@@ -1,21 +1,25 @@
 extends Area2D
-@onready var level_manager = get_node("../../../LevelManager")
-@onready var confirmation = get_node("../../../UI/Confirmation")
 
 var player_nearby = false
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_released("interact") and player_nearby:
-		if await confirmation.ask("Do you really want to restart from level "):
-			level_manager.advance_day()
-
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("interact") and player_nearby:
+		# Get LevelManager from the scene tree root
+		var game = get_tree().get_first_node_in_group("game")
+		if game:
+			var level_manager = game.get_node("LevelManager")
+			var ui = game.get_node("UI")
+			var confirmation = ui.get_node("Confirmation")
+			if await confirmation.ask("Do you want to sleep and advance to the next day?", "Sleep"):
+				level_manager.advance_day()
 
 func _on_body_entered(body: Node2D) -> void:
-	player_nearby = true
+	if body.is_in_group("player"):
+		player_nearby = true
 
 func _on_body_exited(body: Node2D) -> void:
-	player_nearby = false
+	if body.is_in_group("player"):
+		player_nearby = false

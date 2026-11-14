@@ -4,10 +4,10 @@ extends Node2D
 @onready var level_manager = $LevelManager
 @onready var world = $World
 @onready var ui = $UI
-@onready var player_needs = $Systems/PlayerNeeds
 
 
 func _ready() -> void:
+	add_to_group("game")
 	state_machine.initialize(self, {
 		'play' : PlayState,
 		'pause' : PauseState,

@@ -4,7 +4,7 @@ var instructions = [
 	"Welcome to the outpost!",
 	"Keep an eye on your resources.",
 	"Make choices carefully. Each day presents different challenges.",
-    "Good luck!"
+	"Good luck!"
 ]
 
 var current_instruction = 0
@@ -13,14 +13,14 @@ func _ready():
 	update_dialog()
 	
 func update_dialog():
-	$Panel/Dialog.text = instructions[current_instruction]
+	$Panel/VBoxLayout/Dialog.text = instructions[current_instruction]
 	
-	$Panel/PrevButton.disabled = current_instruction == 0
+	$Panel/VBoxLayout/HBoxButtons/PrevButton.disabled = current_instruction == 0
 	
 	if current_instruction == instructions.size() - 1:
-		$Panel/NextButton.text = "Finish"
+		$Panel/VBoxLayout/HBoxButtons/NextButton.text = "Finish"
 	else:
-		$Panel/NextButton.text = "Next"
+		$Panel/VBoxLayout/HBoxButtons/NextButton.text = "Next"
 	
 func next_instruction():
 	if current_instruction < instructions.size() - 1:
