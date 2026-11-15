@@ -1,6 +1,9 @@
 LITTLE LUNA'S JOURNEY
 A Lunar Survival Adventure.
 
+## The challenge
+Build a Junior Astronaut Mission Trainer
+
 About the Game
 
 Little Luna's Journey is an interactive five-day lunar survival simulation developed for the NASA Space Apps Challenge 2026.
@@ -8,10 +11,19 @@ Players step into the boots of a junior astronaut tasked with managing a small l
 Inspired by real space research and lunar exploration, the game introduces players to the challenges of sustaining human life and supporting plant growth in an environment where every resource matters.
 
 ## How to Run the Project
-Click the link below to launch the game. Once it opens, click the full-screen icon at the bottom of the screen to play in full-screen mode.
-Game Controls:
-← / → or A / D: Move the character left and right.
-E: Interact with objects.
+
+1. Click the link below to open the game:
+   [**Little Luna's Journey**](https://kahkashan.itch.io/little-lunas-journey)
+2. Click the **Run Game** button to start playing.
+3. (Optional) Click the **Fullscreen** icon at the bottom of the game window for a full-screen experience.
+
+## Game Controls
+
+| Key | Action |
+|:---:|---|
+| `←` / `→` | Move the character left and right |
+| `A` / `D` | Move the character left and right |
+| `E` | Interact with objects |
 
 ## NASA & Other Space Agency Data Sources
 
@@ -46,5 +58,6 @@ The scientific research, reference values, and visual assets used in this projec
 
 *Note: Scientific sources were used to inform gameplay mechanics and resource requirements. Some numerical values and environmental effects were adapted for game balance and educational purposes rather than representing a complete operational lunar habitat model.*
 
+### Team members and roles
 
 
