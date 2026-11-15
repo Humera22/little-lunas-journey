@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var level_selector = $LevelsSelector
 @onready var choices_dialog = $ChoicesDialog
 @onready var food_menu = $FoodMenu
+@onready var conclusion_dialog = $ConclusionDialog
 
 
 func show_screen(screen_name: String) -> void:
@@ -17,6 +18,7 @@ func show_screen(screen_name: String) -> void:
 	level_selector.hide()
 	choices_dialog.hide()
 	food_menu.hide()
+	conclusion_dialog.hide()
 
 	match screen_name:
 		'main_menu':

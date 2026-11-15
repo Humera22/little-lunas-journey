@@ -1,6 +1,8 @@
 
 extends Node
 
+signal final_day_started(title: String, message: String)
+
 @onready var game_data = get_parent().get_node("GameData")
 @onready var day_content: Node = get_node("../World/InsideNode/DayContent")
 
@@ -99,6 +101,10 @@ func advance_day():
 
 		# Check power warning after day transitions
 		_check_power_warning()
+
+		# On Day 5, emit the signal so the conclusion pops up immediately
+		if next_day_number == 5:
+			final_day_started.emit(day_data.get("title", "Mission Complete"), day_data.get("dialogue", ""))
 	else:
 		print("Game completed!")
 

@@ -60,7 +60,7 @@ offset_top = 8.0
 offset_right = 60.0
 offset_bottom = 38.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 44
 text = "Day 1"
 horizontal_alignment = 1
 
@@ -217,28 +217,28 @@ theme_override_constants/separation = 6
 
 [node name="ChecklistTitle" type="Label" parent="Checklist/ChecklistVBox" unique_id=746835949]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "Daily Tasks"
 horizontal_alignment = 1
 
 [node name="TaskDrink" type="Label" parent="Checklist/ChecklistVBox" unique_id=267767904]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "○ Drink Water"
 
 [node name="TaskEat" type="Label" parent="Checklist/ChecklistVBox" unique_id=1202393893]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "○ Eat Food"
 
 [node name="TaskPlant" type="Label" parent="Checklist/ChecklistVBox" unique_id=1625443154]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "○ Feed Plant"
 
 [node name="TaskComms" type="Label" parent="Checklist/ChecklistVBox" unique_id=1976275808]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "○ Check Comms"
 
 [node name="DialogBox" parent="." unique_id=1945985039 instance=ExtResource("2_ny26j")]

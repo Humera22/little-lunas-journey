@@ -22,6 +22,7 @@ func connect_gameplay_signals():
 	# Communicator
 	var communicator = context.world.get_node("InsideNode/DayContent/Communicator")
 	var choice_dialog = context.ui.get_node("ChoicesDialog")
+	var conclusion_dialog = context.ui.get_node("ConclusionDialog")
 
 	if communicator and not communicator.interacted.is_connected(_on_communicator_interacted):
 		communicator.interacted.connect(_on_communicator_interacted)
@@ -31,6 +32,17 @@ func connect_gameplay_signals():
 
 	if choice_dialog and not choice_dialog.news_closed.is_connected(_on_news_closed):
 		choice_dialog.news_closed.connect(_on_news_closed)
+
+	if conclusion_dialog and not conclusion_dialog.replay_requested.is_connected(_on_replay_requested):
+		conclusion_dialog.replay_requested.connect(_on_replay_requested)
+
+	if conclusion_dialog and not conclusion_dialog.quit_requested.is_connected(_on_quit_requested):
+		conclusion_dialog.quit_requested.connect(_on_quit_requested)
+
+	# Level manager – final day signal
+	var level_manager = context.level_manager
+	if level_manager and not level_manager.final_day_started.is_connected(_on_final_day_started):
+		level_manager.final_day_started.connect(_on_final_day_started)
 
 	# Water station
 	var water_station = context.world.get_node_or_null("InsideNode/DayContent/WaterStation")
@@ -176,3 +188,26 @@ func _show_ms_feedback(correct: bool, correct_ph: float, correct_strength: float
 		"dialogue": message,
 		"choices": []
 	})
+
+
+# ─────────────────────────────── conclusion ────────────────────────────────────
+
+func _on_final_day_started(title: String, message: String):
+	var conclusion_dialog = context.ui.get_node_or_null("ConclusionDialog")
+	if conclusion_dialog:
+		conclusion_dialog.show_conclusion(title, message)
+	# Mark comms as handled so the communicator doesn't re-open it
+	var day_content = context.world.get_node_or_null("InsideNode/DayContent")
+	if day_content:
+		day_content.mark_event_handled()
+	context.level_manager.game_data.complete_task("check_comms")
+
+
+func _on_replay_requested():
+	# Restart from Day 1 with fresh resources
+	context.level_manager.start_first_day(NewClean.get_initial_state())
+	context.state_machine.change('play')
+
+
+func _on_quit_requested():
+	context.get_tree().quit()

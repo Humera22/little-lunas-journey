@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3uywb7hs5gk6"]
 
 [ext_resource type="PackedScene" uid="uid://b6df73fhag2ko" path="res://Scenes/player.tscn" id="1_a02cp"]
-[ext_resource type="Texture2D" uid="uid://dl0hg5qwoct7v" path="res://Assets/bg1.png" id="2_8j60k"]
+[ext_resource type="Texture2D" uid="uid://33hxybfyjjmv" path="res://Assets/bg4.png" id="1_e0ngr"]
 [ext_resource type="Script" uid="uid://u2jv24ercohg" path="res://Scripts/player.gd" id="2_o06y3"]
 [ext_resource type="Texture2D" uid="uid://js38f7djctxc" path="res://Assets/bed.png" id="4_e0ngr"]
 [ext_resource type="Script" uid="uid://grijgqnfuqw" path="res://Scripts/bed.gd" id="4_k7acu"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cmbt0vkge8xon" path="res://Assets/water.png" id="8_hgpy0"]
 [ext_resource type="Script" uid="uid://d4ntsrci4hnly" path="res://Scripts/water_station.gd" id="8_water"]
 [ext_resource type="Texture2D" uid="uid://cvtb1n2pafoe5" path="res://Assets/bg3.png" id="9_t2t4p"]
-[ext_resource type="Script" path="res://Scripts/plant.gd" id="10_0pcbe"]
+[ext_resource type="Script" uid="uid://bm2snlqhfcyqt" path="res://Scripts/plant.gd" id="10_0pcbe"]
 [ext_resource type="Texture2D" uid="uid://jiu0ayoyk51y" path="res://Assets/plant.png" id="11_axeuq"]
 [ext_resource type="Texture2D" uid="uid://dgjvomy17msx6" path="res://Assets/solar_panel.png" id="12_1cojt"]
 
@@ -34,7 +34,7 @@ size = Vector2(20, 16.599358)
 
 [node name="Sprite2D" type="Sprite2D" parent="InsideNode" unique_id=1344749850]
 position = Vector2(960, 540)
-texture = ExtResource("2_8j60k")
+texture = ExtResource("1_e0ngr")
 
 [node name="DayContent" type="Node2D" parent="InsideNode" unique_id=991020011]
 script = ExtResource("7_dayct")
