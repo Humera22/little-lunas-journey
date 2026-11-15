@@ -7,6 +7,11 @@ Little Luna's Journey is an interactive five-day lunar survival simulation devel
 Players step into the boots of a junior astronaut tasked with managing a small lunar outpost. Their mission is simple, but far from easy: survive five days on the Moon while keeping a young plant alive.
 Inspired by real space research and lunar exploration, the game introduces players to the challenges of sustaining human life and supporting plant growth in an environment where every resource matters.
 
+## How to Run the Project
+Click the link below to launch the game. Once it opens, click the full-screen icon at the bottom of the screen to play in full-screen mode.
+Game Controls:
+← / → or A / D: Move the character left and right.
+E: Interact with objects.
 
 ## NASA & Other Space Agency Data Sources
 
@@ -36,6 +41,7 @@ The scientific research, reference values, and visual assets used in this projec
 | Data / Resource | Source |
 |---|---|
 | **Food Production in Space** | [CSA – Food Production Educational Toolkit](https://www.asc-csa.gc.ca/eng/youth-educators/toolkits/food-production/) |
+
 
 
 *Note: Scientific sources were used to inform gameplay mechanics and resource requirements. Some numerical values and environmental effects were adapted for game balance and educational purposes rather than representing a complete operational lunar habitat model.*
