@@ -3,20 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://b6df73fhag2ko" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://dl0hg5qwoct7v" path="res://Assets/bg1.png" id="2_8j60k"]
 [ext_resource type="Script" uid="uid://u2jv24ercohg" path="res://Scripts/player.gd" id="2_o06y3"]
-[ext_resource type="Texture2D" uid="uid://dfpms3py8usm6" path="res://Assets/bg2.png" id="4_5ukr8"]
-[ext_resource type="Texture2D" uid="uid://cqi0whdro4fvk" path="res://icon.svg" id="4_5v1tr"]
+[ext_resource type="Texture2D" uid="uid://js38f7djctxc" path="res://Assets/bed.png" id="4_e0ngr"]
 [ext_resource type="Script" uid="uid://grijgqnfuqw" path="res://Scripts/bed.gd" id="4_k7acu"]
 [ext_resource type="Script" uid="uid://btr76wqknd0tr" path="res://Scripts/communicator.gd" id="6_5v1tr"]
+[ext_resource type="Texture2D" uid="uid://b0irlq50bpdtm" path="res://Assets/comms.png" id="6_kn0ld"]
 [ext_resource type="Script" uid="uid://c8p27rfy5niis" path="res://Scripts/day_content.gd" id="7_dayct"]
+[ext_resource type="Texture2D" uid="uid://cmbt0vkge8xon" path="res://Assets/water.png" id="8_hgpy0"]
 [ext_resource type="Script" uid="uid://d4ntsrci4hnly" path="res://Scripts/water_station.gd" id="8_water"]
+[ext_resource type="Texture2D" uid="uid://cvtb1n2pafoe5" path="res://Assets/bg3.png" id="9_t2t4p"]
+[ext_resource type="Script" path="res://Scripts/plant.gd" id="10_0pcbe"]
+[ext_resource type="Texture2D" uid="uid://jiu0ayoyk51y" path="res://Assets/plant.png" id="11_axeuq"]
+[ext_resource type="Texture2D" uid="uid://dgjvomy17msx6" path="res://Assets/solar_panel.png" id="12_1cojt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msh5w"]
+size = Vector2(20, 16.599358)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qspnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01shd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3it2g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msh5w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qspnv"]
 
@@ -36,11 +44,13 @@ position = Vector2(333, 834)
 script = ExtResource("4_k7acu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/Bed" unique_id=1014628109]
-scale = Vector2(5.96, 5.96)
+position = Vector2(50, -131.5)
+scale = Vector2(24.759998, 24.759998)
 shape = SubResource("RectangleShape2D_msh5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="InsideNode/DayContent/Bed" unique_id=1924037027]
-texture = ExtResource("4_5v1tr")
+position = Vector2(665, -322)
+texture = ExtResource("4_e0ngr")
 
 [node name="InteractHint" type="Label" parent="InsideNode/DayContent/Bed" unique_id=889012400]
 visible = false
@@ -57,11 +67,13 @@ position = Vector2(1571, 852)
 script = ExtResource("6_5v1tr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/Communicator" unique_id=339414681]
-scale = Vector2(6.72, 6.72)
+position = Vector2(-6, -136)
+scale = Vector2(20.48, 20.48)
 shape = SubResource("RectangleShape2D_qspnv")
 
 [node name="Sprite2D" type="Sprite2D" parent="InsideNode/DayContent/Communicator" unique_id=60109997]
-texture = ExtResource("4_5v1tr")
+position = Vector2(-508, -308)
+texture = ExtResource("6_kn0ld")
 
 [node name="DayIndicator" type="Label" parent="InsideNode/DayContent/Communicator" unique_id=889012345]
 visible = false
@@ -88,11 +100,12 @@ position = Vector2(950, 852)
 script = ExtResource("8_water")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InsideNode/DayContent/WaterStation" unique_id=1697929188]
-scale = Vector2(5, 5)
+scale = Vector2(11.000002, 8.119999)
 shape = SubResource("RectangleShape2D_water")
 
 [node name="Sprite2D" type="Sprite2D" parent="InsideNode/DayContent/WaterStation" unique_id=926491072]
-texture = ExtResource("4_5v1tr")
+position = Vector2(159, -308)
+texture = ExtResource("8_hgpy0")
 
 [node name="InteractHint" type="Label" parent="InsideNode/DayContent/WaterStation" unique_id=2061132500]
 visible = false
@@ -107,18 +120,38 @@ horizontal_alignment = 1
 [node name="OutsideNode" type="Node2D" parent="." unique_id=1490516005]
 visible = false
 
-[node name="Plant" type="Area2D" parent="OutsideNode" unique_id=517175709]
-position = Vector2(960, 500)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideNode/Plant" unique_id=106962374]
-shape = SubResource("RectangleShape2D_01shd")
-
 [node name="Sprite2D" type="Sprite2D" parent="OutsideNode" unique_id=2056254640]
 position = Vector2(960, 540)
-texture = ExtResource("4_5ukr8")
+texture = ExtResource("9_t2t4p")
+
+[node name="Plant" type="Area2D" parent="OutsideNode" unique_id=517175709]
+position = Vector2(960, 500)
+script = ExtResource("10_0pcbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideNode/Plant" unique_id=106962374]
+position = Vector2(444, 253)
+scale = Vector2(29.04, 29.04)
+shape = SubResource("RectangleShape2D_3it2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="OutsideNode/Plant" unique_id=606645328]
+texture = ExtResource("11_axeuq")
+
+[node name="InteractHint" type="Label" parent="OutsideNode/Plant" unique_id=1236006557]
+visible = false
+text = "[E] Feed Plant"
+
+[node name="SolarPanel" type="Area2D" parent="OutsideNode" unique_id=612032496]
+position = Vector2(1174, 522)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideNode/SolarPanel" unique_id=1899531985]
+shape = SubResource("CircleShape2D_msh5w")
+
+[node name="Sprite2D" type="Sprite2D" parent="OutsideNode/SolarPanel" unique_id=1567081972]
+texture = ExtResource("12_1cojt")
 
 [node name="Player" parent="." unique_id=1329304662 instance=ExtResource("1_a02cp")]
-position = Vector2(852, 845)
+position = Vector2(457, 793)
+scale = Vector2(3, 3)
 script = ExtResource("2_o06y3")
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1171793474]
@@ -133,3 +166,5 @@ shape = SubResource("WorldBoundaryShape2D_qspnv")
 [connection signal="body_exited" from="InsideNode/DayContent/Communicator" to="InsideNode/DayContent/Communicator" method="_on_body_exited"]
 [connection signal="body_entered" from="InsideNode/DayContent/WaterStation" to="InsideNode/DayContent/WaterStation" method="_on_body_entered"]
 [connection signal="body_exited" from="InsideNode/DayContent/WaterStation" to="InsideNode/DayContent/WaterStation" method="_on_body_exited"]
+[connection signal="body_entered" from="OutsideNode/Plant" to="OutsideNode/Plant" method="_on_body_entered"]
+[connection signal="body_exited" from="OutsideNode/Plant" to="OutsideNode/Plant" method="_on_body_exited"]

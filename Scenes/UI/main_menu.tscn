@@ -12,6 +12,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i2xx2")
 
+[node name="TitleLabel" type="Label" parent="." unique_id=1459016611]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -180.0
+offset_right = 300.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Little Luna's Journey"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1867708711]
 layout_mode = 1
 anchors_preset = 8

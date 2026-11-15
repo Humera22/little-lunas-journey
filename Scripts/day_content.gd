@@ -38,6 +38,7 @@ func _build_summary_text(summary: Dictionary) -> String:
 		lines.append("Yesterday you exercised. Oxygen consumed: %d grams." % oxy_lost)
 	else:
 		lines.append("No exercise yesterday. Oxygen consumed: %d grams." % oxy_lost)
+	lines.append("Resource: NASA OCHMO-TB-004, Revision D — Carbon Dioxide (CO₂)")
 
 	# Water summary
 	if not summary.get("drank_water", true):

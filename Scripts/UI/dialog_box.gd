@@ -1,10 +1,12 @@
 extends Control
 
 var instructions = [
-	"Welcome to the outpost!",
-	"Keep an eye on your resources.",
-	"Make choices carefully. Each day presents different challenges.",
-	"Good luck!"
+	"Welcome to the moon simulation Luna!",
+	"Your job is to flourish a plant.",
+	"If you can successfully do that while staying alive, you will succeed and be selected to go to the moon and actually grow plants there!",
+	"Make sure to eat enough calories, drink enough water, and feed the plant every day. Failure to do so will result in a loss of health.",
+	"Make sure to check the comms for any updates and news.",
+	"Press E to interact with items."
 ]
 
 var current_instruction = 0

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://lo0la0k0dvsf" path="res://Scripts/UI/confirmation.gd" id="5_duuxe"]
 [ext_resource type="Script" uid="uid://db5m6r6ga87jd" path="res://Scripts/UI/choices_dialog.gd" id="6_jfwrg"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/food_menu.tscn" id="7_foodmenu"]
+[ext_resource type="Script" path="res://Scripts/UI/ms_dialog.gd" id="9_mbl0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 24.0
@@ -104,17 +105,17 @@ grow_vertical = 2
 item_count = 6
 item_0/text = "Day 1"
 item_1/text = "Day 2"
-item_1/disabled = true
 item_1/selectable = false
+item_1/disabled = true
 item_2/text = "Day 3"
-item_2/disabled = true
 item_2/selectable = false
+item_2/disabled = true
 item_3/text = "Day 4"
-item_3/disabled = true
 item_3/selectable = false
+item_3/disabled = true
 item_4/text = "Day 5"
-item_4/disabled = true
 item_4/selectable = false
+item_4/disabled = true
 item_5/text = "< Back"
 script = ExtResource("4_1c2ca")
 
@@ -179,12 +180,65 @@ custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 text = "Continue"
 
-[node name="FoodMenu" parent="." instance=ExtResource("7_foodmenu")]
+[node name="FoodMenu" parent="." unique_id=1436581487 instance=ExtResource("7_foodmenu")]
+
+[node name="MSDialog" type="Control" parent="." unique_id=1356650248]
+visible = false
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_mbl0m")
+
+[node name="Overlay" type="ColorRect" parent="MSDialog" unique_id=207965535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="MSDialog" unique_id=881929573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="MSDialog/CenterContainer" unique_id=494066466]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MSDialog/CenterContainer/Panel" unique_id=1690991984]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MSDialog/CenterContainer/Panel/VBox" unique_id=1937766350]
+layout_mode = 2
+text = "Feed the Plant"
+horizontal_alignment = 1
+
+[node name="Dialogue" type="Label" parent="MSDialog/CenterContainer/Panel/VBox" unique_id=1218928967]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MSDialog/CenterContainer/Panel/VBox" unique_id=283531154]
+layout_mode = 2
+
+[node name="ResourceLabel" type="Label" parent="MSDialog/CenterContainer/Panel/VBox" unique_id=283531155]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "Resource: NASA OSDR OSD-476"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/SelectLevelButton" to="PauseMenu" method="_on_select_level_button_pressed"]
 [connection signal="item_activated" from="LevelsSelector" to="LevelsSelector" method="_on_item_activated"]
 [connection signal="visibility_changed" from="LevelsSelector" to="LevelsSelector" method="_on_visibility_changed"]
-[connection signal="confirmed" from="Confirmation" to="Confirmation" method="_on_confirmed"]
 [connection signal="canceled" from="Confirmation" to="Confirmation" method="_on_canceled"]
+[connection signal="confirmed" from="Confirmation" to="Confirmation" method="_on_confirmed"]

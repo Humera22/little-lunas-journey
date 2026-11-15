@@ -21,6 +21,9 @@ extends Control
 @onready var task_eat: Label = $Checklist/ChecklistVBox/TaskEat
 @onready var task_plant: Label = $Checklist/ChecklistVBox/TaskPlant
 @onready var task_comms: Label = $Checklist/ChecklistVBox/TaskComms
+@onready var power_warning: Label = $PowerWarning
+
+const POWER_WARNING_THRESHOLD: float = 40.0
 
 
 func _ready():
@@ -39,6 +42,7 @@ func _process(_delta):
 	update_resource_bars()
 	update_checklist()
 	update_day_label()
+	update_power_warning()
 
 func update_resource_bars():
 	var resources = game.level_manager.game_data.resources
@@ -53,8 +57,8 @@ func update_resource_bars():
 	oxygen_label.text = str(resources["oxygen"]) + " " + str(units['oxygen'])
 	water_label.text = str(resources["water"]) + " " + str(units['water'])
 	power_label.text = str(resources["power"]) + " " + str(units['power'])
-	p_health_label.text = str(resources["plant_health"]) + " " + str(units['plant_health'])
-	a_health_label.text = str(resources["astronaut_health"]) + " " + str(units['astronaut_health'])
+	p_health_label.text = str(resources["plant_health"])
+	a_health_label.text = str(resources["astronaut_health"])
 
 
 func update_checklist():
@@ -88,6 +92,22 @@ func update_day_label():
 
 func _on_pause_button_pressed() -> void:
 	game.state_machine.change('pause')
+
+
+func update_power_warning() -> void:
+	var resources = game.level_manager.game_data.resources
+	if resources.is_empty():
+		return
+	var current_power: float = resources.get("power", 100.0)
+	if power_warning:
+		if current_power < POWER_WARNING_THRESHOLD:
+			power_warning.visible = true
+			# Flash the warning
+			var alpha = 0.5 + 0.5 * sin(Time.get_ticks_msec() * 0.005)
+			power_warning.modulate = Color(1.0, 0.3, 0.0, alpha)
+			power_warning.text = "⚠ LOW POWER: %.0f units!" % current_power
+		else:
+			power_warning.visible = false
 
 
 func _on_eat_button_pressed() -> void:

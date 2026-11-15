@@ -2,32 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://cicuhoh2h2cuk" path="res://Scenes/UI/button.tscn" id="1_sprlj"]
 [ext_resource type="PackedScene" uid="uid://564d7rhwb338" path="res://Scenes/UI/dialog_box.tscn" id="2_ny26j"]
-[ext_resource type="Script" uid="uid://b41lshw4rbt2j" path="res://Scripts/UI/hud.gd" id="3_hud"]
+[ext_resource type="Script" uid="uid://b6dv2nn7mxlqy" path="res://Scripts/UI/hud.gd" id="3_hud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msh5w"]
-bg_color = Color(0.0, 0.0, 0.0, 0.6)
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.6)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
-corner_radius_bottom_left = 8
 corner_radius_bottom_right = 8
-content_margin_left = 12.0
-content_margin_right = 12.0
-content_margin_top = 8.0
-content_margin_bottom = 8.0
+corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health"]
-bg_color = Color(0.80784315, 0.2509804, 0.54509807, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdl0h"]
+bg_color = Color(0.7163508, 0.4478727, 0.9739762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8glcj"]
+bg_color = Color(0.2509804, 0.43137255, 0.9490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsu76"]
+bg_color = Color(0, 1, 0.31764707, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ux5h0"]
+bg_color = Color(0.9882353, 0.16078432, 0.06666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wqu8"]
+bg_color = Color(0.73333335, 0, 0.015686275, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_checklist"]
-bg_color = Color(0.0, 0.0, 0.0, 0.5)
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.5)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
-corner_radius_bottom_left = 8
 corner_radius_bottom_right = 8
-content_margin_left = 12.0
-content_margin_right = 12.0
-content_margin_top = 8.0
-content_margin_bottom = 8.0
+corner_radius_bottom_left = 8
 
 [node name="HUD" type="Control" unique_id=304500825]
 layout_mode = 3
@@ -38,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_hud")
 
-[node name="DayLabel" type="Label" parent="."]
+[node name="DayLabel" type="Label" parent="." unique_id=972671491]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -48,9 +60,9 @@ offset_top = 8.0
 offset_right = 60.0
 offset_bottom = 38.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
 text = "Day 1"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 22
 
 [node name="CenterContainer" type="PanelContainer" parent="." unique_id=921038812]
 layout_mode = 1
@@ -71,135 +83,123 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="OxygenIcon" type="Label" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353025]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 text = "O₂"
-custom_minimum_size = Vector2(28, 0)
 
 [node name="Oxygen" type="ProgressBar" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353024]
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(100, 20)
+theme_override_styles/fill = SubResource("StyleBoxFlat_fdl0h")
 max_value = 3500.0
 show_percentage = false
-theme_override_styles/background = SubResource("StyleBoxFlat_health")
 
 [node name="OxygenLabel" type="Label" parent="CenterContainer/ResourceBars/OxygenRow" unique_id=270353026]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "-- g"
-custom_minimum_size = Vector2(80, 0)
 
 [node name="WaterRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=1278086279]
 layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="WaterIcon" type="Label" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648266]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 text = "💧"
-custom_minimum_size = Vector2(28, 0)
 
 [node name="Water" type="ProgressBar" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648265]
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(100, 20)
+theme_override_styles/fill = SubResource("StyleBoxFlat_8glcj")
 max_value = 15.0
 show_percentage = false
 
 [node name="WaterLabel" type="Label" parent="CenterContainer/ResourceBars/WaterRow" unique_id=1937648267]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "-- L"
-custom_minimum_size = Vector2(80, 0)
 
 [node name="PowerRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=135514660]
 layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="PowerIcon" type="Label" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514661]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 text = "⚡"
-custom_minimum_size = Vector2(28, 0)
 
 [node name="Power" type="ProgressBar" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514662]
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(100, 20)
-max_value = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_vsu76")
 show_percentage = false
 
 [node name="PowerLabel" type="Label" parent="CenterContainer/ResourceBars/PowerRow" unique_id=135514663]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "-- pu"
-custom_minimum_size = Vector2(80, 0)
 
 [node name="PHealthRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=1431617624]
 layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="PHealthIcon" type="Label" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464110]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 text = "🌱"
-custom_minimum_size = Vector2(28, 0)
 
 [node name="PHealth" type="ProgressBar" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464109]
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(100, 20)
-max_value = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ux5h0")
 show_percentage = false
 
 [node name="PHealthLabel" type="Label" parent="CenterContainer/ResourceBars/PHealthRow" unique_id=1999464111]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "--"
-custom_minimum_size = Vector2(80, 0)
 
 [node name="AHealthRow" type="HBoxContainer" parent="CenterContainer/ResourceBars" unique_id=557670856]
 layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="AHealthIcon" type="Label" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731631]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 text = "👩‍🚀"
-custom_minimum_size = Vector2(28, 0)
 
 [node name="AHealth" type="ProgressBar" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731630]
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(100, 20)
-max_value = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_7wqu8")
 show_percentage = false
-theme_override_styles/background = SubResource("StyleBoxFlat_health")
 
 [node name="AHealthLabel" type="Label" parent="CenterContainer/ResourceBars/AHealthRow" unique_id=1896731632]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "--"
-custom_minimum_size = Vector2(80, 0)
 
 [node name="PauseButton" parent="." unique_id=380300329 instance=ExtResource("1_sprlj")]
 layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 4.0
-offset_right = 100.0
 offset_top = 4.0
-offset_bottom = 36.0
+offset_right = 100.0
 text = "☰ Menu"
 
 [node name="EatButton" parent="." unique_id=490123457 instance=ExtResource("1_sprlj")]
 layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 108.0
-offset_right = 204.0
 offset_top = 4.0
-offset_bottom = 36.0
+offset_right = 204.0
 text = "🍽 Eat"
 
-[node name="Checklist" type="PanelContainer" parent="."]
+[node name="Checklist" type="PanelContainer" parent="." unique_id=806054463]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -211,43 +211,40 @@ offset_bottom = 80.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_checklist")
 
-[node name="ChecklistVBox" type="VBoxContainer" parent="Checklist"]
+[node name="ChecklistVBox" type="VBoxContainer" parent="Checklist" unique_id=526559603]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="ChecklistTitle" type="Label" parent="Checklist/ChecklistVBox"]
+[node name="ChecklistTitle" type="Label" parent="Checklist/ChecklistVBox" unique_id=746835949]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Daily Tasks"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 16
 
-[node name="TaskDrink" type="Label" parent="Checklist/ChecklistVBox"]
+[node name="TaskDrink" type="Label" parent="Checklist/ChecklistVBox" unique_id=267767904]
 layout_mode = 2
+theme_override_font_sizes/font_size = 15
 text = "○ Drink Water"
-theme_override_font_sizes/font_size = 15
 
-[node name="TaskEat" type="Label" parent="Checklist/ChecklistVBox"]
+[node name="TaskEat" type="Label" parent="Checklist/ChecklistVBox" unique_id=1202393893]
 layout_mode = 2
+theme_override_font_sizes/font_size = 15
 text = "○ Eat Food"
-theme_override_font_sizes/font_size = 15
 
-[node name="TaskPlant" type="Label" parent="Checklist/ChecklistVBox"]
+[node name="TaskPlant" type="Label" parent="Checklist/ChecklistVBox" unique_id=1625443154]
 layout_mode = 2
+theme_override_font_sizes/font_size = 15
 text = "○ Feed Plant"
-theme_override_font_sizes/font_size = 15
 
-[node name="TaskComms" type="Label" parent="Checklist/ChecklistVBox"]
+[node name="TaskComms" type="Label" parent="Checklist/ChecklistVBox" unique_id=1976275808]
 layout_mode = 2
-text = "○ Check Comms"
 theme_override_font_sizes/font_size = 15
+text = "○ Check Comms"
 
 [node name="DialogBox" parent="." unique_id=1945985039 instance=ExtResource("2_ny26j")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.0
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_top = -200.0
 grow_vertical = 0
 
@@ -266,6 +263,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Next Day"
+
+[node name="PowerWarning" type="Label" parent="." unique_id=45997886]
+visible = false
+layout_mode = 0
+text = "⚠ LOW POWER WARNING!"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]

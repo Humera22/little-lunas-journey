@@ -125,3 +125,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 40)
 text = "← Back"
 theme_override_font_sizes/font_size = 16
+
+[node name="ResourceLabel" type="Label" parent="Background/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "Resource: NASA StemOnBoard Demonstrations | Canadian Space Agency — Food production on the moon and in remote areas"
+horizontal_alignment = 1
+autowrap_mode = 3

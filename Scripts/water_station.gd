@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 		# meow
 		# (source: NewClean.get_data()["balance_parameters"]["daily_drink"])
 		var confirmed = await confirmation.ask(
-			"Do you want to drink %.1f liters of water?" % daily_drink,
+			"Do you want to drink %.1f liters of water?\n\nResource: NASA-STD-3001, Volume 2, Revision E" % daily_drink,
 			"Drink Water"
 		)
 		if confirmed:

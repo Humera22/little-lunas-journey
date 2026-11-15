@@ -29,6 +29,8 @@ const INITIAL_STATE := {
 	"nutrient_ph_wrong": false,
 	"solar_panels_damaged": false,
 	"choices_made": [],
+	"flux": 0,
+	"severity": 0
 }
 const FOOD := {
 	"calories_required_min": 1900,

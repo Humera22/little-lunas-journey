@@ -36,43 +36,39 @@ const DAYS = [
 	},
 	{
 		"day": 2,
+		"type": "news",
+		"title": "Plant Care Reminder",
+		"dialogue": "Good morning, Luna! Don't forget to tend to the Arabidopsis Thaliana today. It needs the correct Murashige and Skoog (MS) solution. Interact with the plant to feed it.",
+		"choices": []
+	},
+	{
+		"day": 3,
 		"type": "choice",
-		"title": "Daily Situation",
-		"dialogue": "Example situation description.",
+		"title": "Solar Panel Maintenance",
+		"dialogue": "Luna, the solar panels are showing reduced efficiency — lunar dust is building up on the surface. Do you want to go outside and clean them today?",
 		"choices": [
 			{
-				"id": "choice_a",
-				"text": "First option"
+				"id": "clean_panels",
+				"text": "Go outside and clean the solar panels"
 			},
 			{
-				"id": "choice_b",
-				"text": "Second option"
-			},
-			{
-				"id": "choice_c",
-				"text": "Third option"
+				"id": "skip_cleaning",
+				"text": "Skip cleaning for now"
 			}
 		]
 	},
 	{
-		"day": 3,
-		"type": "news",
-		"title": "Daily News",
-		"dialogue": "Example news message.",
-		"choices": []
-	},
-	{
 		"day": 4,
-		"type": "choice",
-		"title": "Daily Situation",
-		"dialogue": "Example situation description.",
+		"type": "news",
+		"title": "Solar Storm Warning",
+		"dialogue": "STORM_WARNING_PLACEHOLDER",
 		"choices": []
 	},
 	{
 		"day": 5,
 		"type": "news",
 		"title": "Mission Complete",
-		"dialogue": "Congratulations! You've survived 5 days on the lunar outpost. The resupply shuttle is on its way.",
+		"dialogue": "MISSION_RESULT_PLACEHOLDER",
 		"choices": []
 	}
 ]
