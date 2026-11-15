@@ -65,6 +65,7 @@ Developed by Kahkashan for NASA Space Apps Challenge 2026.
 Core Contributors
 
 Humera Fatima — Team Owner & Game Builder
+
 Manahil Khan — Data Lead
 
 Team Members
