@@ -4,7 +4,7 @@ A Lunar Survival Adventure.
 ## The challenge
 Build a Junior Astronaut Mission Trainer
 
-About the Game
+## About the Game
 
 Little Luna's Journey is an interactive five-day lunar survival simulation developed for the NASA Space Apps Challenge 2026.
 Players step into the boots of a junior astronaut tasked with managing a small lunar outpost. Their mission is simple, but far from easy: survive five days on the Moon while keeping a young plant alive.
