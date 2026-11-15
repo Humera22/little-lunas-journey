@@ -70,8 +70,11 @@ Manahil Khan — Data Lead
 Team Members
 
 Juwaira Fatima - Designer
+
 Farah Sherif Mohammed - Designer
+
 Hafsa Nabeel - Presenter
-Reema Essa Alsaedi - Presenter
+
+Reema Essa Alsaedi - CO-Presenter
 
 
