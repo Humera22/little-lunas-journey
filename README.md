@@ -58,6 +58,20 @@ The scientific research, reference values, and visual assets used in this projec
 
 *Note: Scientific sources were used to inform gameplay mechanics and resource requirements. Some numerical values and environmental effects were adapted for game balance and educational purposes rather than representing a complete operational lunar habitat model.*
 
-### Team members and roles
+## Team
+
+Developed by Kahkashan for NASA Space Apps Challenge 2026.
+
+Core Contributors
+
+Humera Fatima — Team Owner & Game Builder
+Manahil Khan — Data Lead
+
+Team Members
+
+Juwaira Fatima - Designer
+Farah Sherif Mohammed - Designer
+Hafsa Nabeel - Presenter
+Reema Essa Alsaedi - Presenter
 
 
